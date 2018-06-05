@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+<!--Code Adapted from https://owlcation.com/stem/how-to-align-images-side-by-side-->
+
+{% block title %}About Us{% endblock %}
+
+{% block main %}
+
+<h1>About Us</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="column left" style="width:29%">
+            <img src="https://i.imgur.com/0yci3ip.jpg" style="width:100%">
+        </div>
+        <div class="column middle" style="width:42%">
+            <div style="width:100%;">
+                <p>The Harvard Art Museums is like an iceberg. Although there are over 250,000 pieces of art in the collection, less than 2% of the pieces are on display. This website aims to show users the art they really want to see, based on interest, rather than simply what is on display. Through this project, we hope to bring greater awareness to the Harvard Art Museums' collections, which we both believe are a very underutilized resource on our campus!</p>
+                <p><strong>Daniel Rosenblatt</strong> is a History and Literature concentrator with a Computer Science secondary from Greenwich, CT. On campus, he is on the student board of the Harvard Art Museums, is involved with the International Relations Council, and is a member of the Club Tennis Team. He lives in Pfoho.</p>
+                <p><strong>Amy Danoff</strong> is an Applied Mathematics concentrator with a Computer Science secondary from Philadelphia, PA. On campus, she is on the executive board of the Harvard Advocate, Harvard's art and literary magazine, is involved with Harvard Model Congress, and leads outdoor pre-orientation trips for incoming first-years. She lives in Pfoho.</p>
+                <p>This website was created as Amy and Daniel's CS50 Final Project. </p>
+            </div>
+        </div>
+        <div class="column right" style="width:29%">
+            <img src="https://i.imgur.com/QBkR2ta.jpg" style="width:100%">
+        </div>
+    </div>
+</div>
+
+{% endblock %}

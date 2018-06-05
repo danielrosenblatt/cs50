@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<body>
+    <br></br>
+    <h1>What do you want to see?</h1>
+    <h2>We will provide relevant options for your {{numberadj}} of four tour stops.</h2>
+
+    <form action="/realcustom" method="post">
+        <div class="form-group">
+        <input autocomplete="off" autofocus class="form-control" name="input" placeholder="Type your interest here. (like 'cats' or 'maps' or even 'church')" type="text"/>
+        </div>
+        <button type="submit" name="action" class="button" value="one">Explore!</button>
+    </form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,745 @@
+/*////////////////////////////////////////////////*/
+/*///////////////// CSS DOCUMENT /////////////////*/
+/*////////////////////////////////////////////////*/
+
+
+/*///////////////////////////////////////////*/
+/*///////////////// GENERAL /////////////////*/
+/*///////////////////////////////////////////*/
+
+/*///////////// LAYOUT.HTML /////////////*/
+
+/*//// NAVIGATION BAR ////*/
+
+.navul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+.navli {
+    float: right;
+}
+
+.navlia {
+    display: block;
+    color: grey;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: "Helvetica", Helvetica, sans-serif;
+}
+
+.navlia:hover {
+    color: black;
+}
+
+/*//// FOOTER ////*/
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: lightgrey;
+   color: white;
+   text-align: center;
+   font-family: "Helvetica", Helvetica, sans-serif;
+}
+
+/*//// FOOTER NAVIGATION BAR ////*/
+/*///////////// GET RID OF THIS IF NOT USED /////////////*/
+
+.footul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: white;
+}
+
+.footli {
+    float: left;
+    color: lightgrey;
+}
+
+.footlia {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: "Helvetica", Helvetica, sans-serif;
+}
+
+/*///////////// TEXT /////////////*/
+
+h1 {
+    text-align: center;
+    color: black;
+    font-family: "Helvetica", Helvetica, sans-serif;
+    font-weight: lighter;
+}
+
+h2 {
+    text-align: center;
+    color: grey;
+    font-family: "Helvetica", Helvetica, sans-serif;
+    font-weight: lighter;
+}
+
+h3 {
+    text-align: center;
+    color: black;
+    font-family: "Helvetica", Helvetica, sans-serif;
+    font-weight: lighter;
+    font-size: 24pt;
+}
+
+p {
+    text-align: center;
+    color: black;
+    font-family: "Helvetica", Helvetica, sans-serif;
+    font-weight: lighter;
+}
+
+p2 {
+    text-align: center;
+    color: black;
+    font-family: "Helvetica", Helvetica, sans-serif;
+    font-weight: lighter;
+    font-size: 10pt;
+}
+
+/*///////////// FORMS AND INPUTS /////////////*/
+
+input[type=text] {
+    width: 90%;
+    padding: 10px 18px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+
+input[type=password] {
+    width: 40%;
+    padding: 5px 9px;
+    margin: 4px 0;
+    text-align: center;
+}
+
+form-group{
+    text-align: center;
+    display: inline-block;
+}
+
+form {
+    margin: 0 auto;
+    width: 400px;
+    text-align: center;
+    display: block;
+}
+
+/* Used in login.html and register.hmtl */
+.form-control {
+    width: 40%;
+    padding: 5px 9px;
+    margin: 4px 0;
+    text-align: center;
+}
+
+/*///////////// BUTTONS /////////////*/
+
+/*Below from https://www.w3schools.com/css/tryit.asp?filename=trycss_buttons_hover*/
+.button {
+    background-color: #808080;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.3s; /* Safari */
+    transition-duration: 0.3s;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 2px solid #808080;
+    display:block;
+    margin:0 auto;
+    margin-top:10px;
+    border-radius: 4px;
+}
+
+.button:hover {
+    background-color: #808080;
+    color: white;
+}
+
+/*///////////////////////////////////////*/
+/*//////////// PAGE-SPECIFIC ////////////*/
+/*///////////////////////////////////////*/
+
+
+/*////////////////////////////////////*/
+/*//////////// ABOUT.HTML ////////////*/
+/*////////////////////////////////////*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+}
+
+.left, .right {
+  width: 29%;
+}
+
+.middle {
+  width: 42%;
+  padding: 4%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*//////////////////////////////////////////*/
+/*//////////// CHOOSEIMAGE.HTML ////////////*/
+/*//////////////////////////////////////////*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+.header {
+    text-align: center;
+    padding: 32px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 22%;
+    padding: 10px;
+}
+
+.column img {
+    margin-top: 12px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 800px) {
+    .column {
+        width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+
+/*////////////////////////////////////////////*/
+/*//////////// CURATEEXPLORE.HTML ////////////*/
+/*////////////////////////////////////////////*/
+
+/*// PAGE LAYOUT //*/
+
+.containerz {
+  display: flex;
+}
+.containerz > div {
+  flex: 1; /*grow*/
+}
+
+/*// TIME BUTTONS //*/
+
+.buttonul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+.buttonli {
+    float: right;
+    margin: 2px 2px;
+    font-size: 7;
+    padding: 7px 10px;
+}
+
+.clickedtime {
+    background-color: #808080;
+    color: white;
+}
+
+/*// COLOR BUTTONS //*/
+
+.colorbutton{
+    float: right;
+    margin: 2px 2px;
+    border: none;
+    padding: 12px 12px;
+    display: inline-block;
+    font-size: 10px;
+    margin: 1px 1px;
+    -webkit-transition-duration: 0.3s; /* Safari */
+    transition-duration: 0.3s;
+    cursor: pointer;
+    border: 1px solid grey;
+    display:block;
+    margin:0 auto;
+    margin-top:10px;
+    border-radius: 4px;
+}
+
+.clickedcolor{
+    border: 2px solid black;
+}
+
+#buttonred
+{
+    background-color: red;
+}
+
+#buttongreen
+{
+    background-color: green;
+}
+
+#buttonyellow
+{
+    background-color: yellow;
+}
+
+#buttonblack
+{
+    background-color: black;
+}
+
+#buttonwhite
+{
+    background-color: white;
+}
+
+#buttongrey
+{
+    background-color: grey;
+}
+
+
+/*//////////////////////////////////////////*/
+/*//////////// SAVEDTOURS.HTML ////////////*/
+/*//////////////////////////////////////////*/
+
+/*http://cssmenumaker.com/blog/stylish-css-tables-tutorial/*/
+table {
+    color: #333;
+    font-family: Helvetica, Arial, sans-serif;
+    width: 100%;
+    border-collapse:
+    collapse; border-spacing: 0;
+}
+
+td, th {
+    border: 1px solid transparent; /* No more visible border */
+    height: 30px;
+    transition: all 0.3s;  /* Simple transition for hover effect */
+}
+
+th {
+    background: #DFDFDF;  /* Darken header a bit */
+    font-weight: bold;
+}
+
+td {
+    background: #FAFAFA;
+    text-align: center;
+}
+
+/* Cells in even rows (2,4,6...) are one color */
+tr:nth-child(even) td { background: #F1F1F1; }
+
+/* Cells in odd rows (1,3,5...) are another (excludes header cells)  */
+tr:nth-child(odd) td { background: #FEFEFE; }
+
+#name:hover { background: #666; color: #FFF; }
+/* Hover cell effect! */
+
+#b {
+    background:transparent;
+    border:none;
+    outline:none;
+    display:block;
+    height:100%;
+    width:100%;
+}
+
+#b:hover { background: #666; color: #FFF;
+    border:none;
+    outline:none;
+    display:block;
+    border-radius: 0px;
+    height:100%;
+    width:100%;
+    cursor:pointer
+}
+
+/*DO WE USE DROPDOWN??*/
+/*Code adapted from https://www.w3schools.com/howto/howto_css_dropdown.asp*/
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+/*//////////////////////////////////////////*/
+/*//////////// TOUR2.HTML ////////////*/
+/*//////////////////////////////////////////*/
+
+* {box-sizing:border-box}
+body {font-family: Verdana,sans-serif;margin:0}
+.mySlides {display:none}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+.figcaption{
+color: black;
+  font-size: 15px;
+  padding: 8px 12px;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+
+
+/*#div1 {*/
+/*    margin: 0 auto;*/
+/*    width: 600px;*/
+/*    text-align: center;*/
+/*    display: block;*/
+/*}*/
+
+
+/*.button2:hover {*/
+/*    background-color: #808080;*/
+/*    color: white;*/
+/*}*/
+
+/*.button2:click {*/
+/*    background-color: #808080;*/
+/*    color: white;*/
+/*}*/
+
+/*.toggle-button:hover {*/
+/*    background-color: #808080;*/
+/*    color: grey;*/
+/*}*/
+
+/*Is this used anywhere*/
+/*#toggle-button*/
+/*{*/
+/*    background-color: grey;*/
+/*    border: none;*/
+/*    color: white;*/
+/*    padding: 16px 32px;*/
+/*    text-align: center;*/
+/*    text-decoration: none;*/
+/*    display: inline-block;*/
+/*    font-size: 14px;*/
+/*    margin: 2px 1px;*/
+    -webkit-transition-duration: 0.3s; /* Safari */
+/*    transition-duration: 0.3s;*/
+/*    cursor: pointer;*/
+/*    border: 2px solid #808080;*/
+/*    display:block;*/
+/*    margin:0 auto;*/
+/*    margin-top:10px;*/
+/*}*/
+
+
+/*.bg {*/
+/*  background: url('/assets/example/bg_blueplane.jpg') no-repeat center center;*/
+/*  position: fixed;*/
+/*  width: 100%;*/
+  height: 350px; /*same height as jumbotron */
+/*  top:0;*/
+/*  left:0;*/
+/*  z-index: -1;*/
+/*}*/
+
+/*.jumbotron {*/
+/*  height: 350px;*/
+/*  color: white;*/
+/*  text-shadow: #444 0 1px 1px;*/
+/*  background:transparent;*/
+/*}*/
+
+
+/*/////////////////////////////////////////////*/
+/*//////////// REMEMBEREDTOUR.HTML ////////////*/
+/*/////////////////////////////////////////////*/
+
+/** {box-sizing:border-box}*/
+/*body {font-family: Verdana,sans-serif;margin:0}*/
+/*.mySlides {display:none}*/
+
+/* Slideshow container */
+/*.slideshow-container {*/
+/*  max-width: 1000px;*/
+/*  position: relative;*/
+/*  margin: auto;*/
+/*}*/
+
+/* Next & previous buttons */
+/*.prev, .next {*/
+/*  cursor: pointer;*/
+/*  position: absolute;*/
+/*  top: 50%;*/
+/*  width: auto;*/
+/*  padding: 16px;*/
+/*  margin-top: -22px;*/
+/*  color: white;*/
+/*  font-weight: bold;*/
+/*  font-size: 18px;*/
+/*  transition: 0.6s ease;*/
+/*  border-radius: 0 3px 3px 0;*/
+/*}*/
+
+/* Position the "next button" to the right */
+/*.next {*/
+/*  right: 0;*/
+/*  border-radius: 3px 0 0 3px;*/
+/*}*/
+
+/* On hover, add a black background color with a little bit see-through */
+/*.prev:hover, .next:hover {*/
+/*  background-color: rgba(0,0,0,0.8);*/
+/*}*/
+
+/* Caption text */
+/*.text {*/
+/*  color: #f2f2f2;*/
+/*  font-size: 15px;*/
+/*  padding: 8px 12px;*/
+/*  position: absolute;*/
+/*  bottom: 8px;*/
+/*  width: 100%;*/
+/*  text-align: center;*/
+/*}*/
+
+/* Number text (1/3 etc) */
+/*.numbertext {*/
+/*  color: #f2f2f2;*/
+/*  font-size: 12px;*/
+/*  padding: 8px 12px;*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*}*/
+
+/* The dots/bullets/indicators */
+/*.dot {*/
+/*  cursor: pointer;*/
+/*  height: 15px;*/
+/*  width: 15px;*/
+/*  margin: 0 2px;*/
+/*  background-color: #bbb;*/
+/*  border-radius: 50%;*/
+/*  display: inline-block;*/
+/*  transition: background-color 0.6s ease;*/
+/*}*/
+
+/*.active, .dot:hover {*/
+/*  background-color: #717171;*/
+/*}*/
+
+/* Fading animation */
+/*.fade {*/
+/*  -webkit-animation-name: fade;*/
+/*  -webkit-animation-duration: 1.5s;*/
+/*  animation-name: fade;*/
+/*  animation-duration: 1.5s;*/
+/*}*/
+
+/*@-webkit-keyframes fade {*/
+/*  from {opacity: .4}*/
+/*  to {opacity: 1}*/
+/*}*/
+
+/*@keyframes fade {*/
+/*  from {opacity: .4}*/
+/*  to {opacity: 1}*/
+/*}*/
+
+/* On smaller screens, decrease text size */
+/*@media only screen and (max-width: 300px) {*/
+/*  .prev, .next,.text {font-size: 11px}*/
+/*}*/
+
+/*.figcaption{*/
+/*color: black;*/
+/*  font-size: 15px;*/
+/*  padding: 8px 12px;*/
+/*  bottom: 8px;*/
+/*  width: 100%;*/
+/*  text-align: center;*/
+/*}*/

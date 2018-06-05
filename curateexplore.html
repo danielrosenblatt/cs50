@@ -1,0 +1,248 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Request a Tour from a Curator
+{% endblock %}
+
+{% block main %}
+<link rel="stylesheet" type="text/css" href="./static/style.css">
+<script src="/static/scripts.js"></script>
+
+<body>
+    <h1>What do you want to see?</h1>
+    <h2>Your personal curator awaits!</h2>
+
+<!--Query Form-->
+    <form action="/realcurate" method="post" id="myForm" >
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="user_input" placeholder="Type your interest here. (like 'dogs' or 'China' or even 'tea')" type="text" required>
+            <input name="hiddenTime" type="hidden" id="hiddenTime" value="any">
+            <input name="hiddenColor" type="hidden" id="hiddenColor" value="any">
+    </form>
+        </div>
+    </form>
+<!--Other Parameters-->
+    <!--Time-->
+    <div id="buttonz" class="containerz">
+        <button onclick="revealAll()" class="button small">Additional Parameters</button>
+    </div>
+    <div class="containerz">
+        <div id="time" style="text-align: center; font-family:Helvetica; display:none">Preferred Era (choose one)
+            <ul class="buttonul">
+                <li><button name="notsofarback" onclick="notsofarbackfunction()" class="button  buttonli" id="notsofarback">Not So Far Back</button></li>
+                <li><button name="wayback" onclick="waybackfunction()"class="button  buttonli" id="wayback">Way Back</button></li>
+                <li><button name="waywayback" onclick="waywaybackfunction()" class="button buttonli" id="waywayback">Way Way Back</button></li>
+            </ul>
+        </div>
+        <div id="color" style="text-align: center; font-family:Helvetica; display:none">Preferred Color (choose one)
+            <ul class="buttonul" style="float: center; margin-right: 32%;">
+                <li><button id="buttonred" onclick="redfunction()" class="colorbutton"></button></li>
+                <li><button id="buttongreen" onclick="greenfunction()" class="colorbutton"></button></li>
+                <li><button id="buttonyellow" onclick="yellowfunction()" class="colorbutton"></button></li>
+                <li><button id="buttonblack" onclick="blackfunction()" class="colorbutton"></button></li>
+                <li><button id="buttonwhite" onclick="whitefunction()" class="colorbutton"></button></li>
+                <li><button id="buttongrey" onclick="greyfunction()" class="colorbutton"></button></li>
+            </ul>
+        </div>
+        <div id="gallery" style="text-align: center; font-family:Helvetica; display:none">On-View Preference
+            <ul id="buttonul" style="text-align: left;">
+                <input type="checkbox" name="galleryPreference" onclick="gallerypreferencefunction()" class="p-switch" form="myForm" id="gallerypref" value="on">
+                <label for="gallerypref">I prefer to see objects currently on display.</label>
+            </ul>
+        </div>
+    </div>
+    <div class="containerz">
+        <button name="action" onclick="submitForm()" class="button" value="one" form="myForm">Explore!</button>
+    </div>
+
+<script>
+
+//Reveal Functions
+function revealAll() {
+    revealButton();
+    revealTime();
+    revealColor();
+    revealGallery();
+}
+
+function revealButton() {
+    var x = document.getElementById("buttonz");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+function revealTime() {
+    var x = document.getElementById("time");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function revealColor() {
+    var x = document.getElementById("color");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function revealGallery() {
+    var x = document.getElementById("gallery");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+// Button Parameter Functions and Variables //
+// Time //
+
+var time = "any";
+
+// Way Way Back
+function waywaybackfunction() {
+    if ( time === "waywayback") {
+        time = "any";
+        var d = document.getElementById("waywayback");
+        d.className = "button buttonli";
+    }
+    else {
+        time = "waywayback";
+        var d = document.getElementById("waywayback");
+        d.className += " clickedtime";
+    }
+}
+
+// Way Back
+function waybackfunction() {
+    if ( time === "wayback") {
+        time = "any";
+        var d = document.getElementById("wayback");
+        d.className = "button buttonli";
+    }
+    else {
+        time = "wayback";
+        var d = document.getElementById("wayback");
+        d.className += " clickedtime";
+    }
+}
+
+// Not So Far Back
+function notsofarbackfunction() {
+    if ( time === "notsofarback") {
+        time = "any";
+        var d = document.getElementById("notsofarback");
+        d.className = "button buttonli";
+    }
+    else {
+        time = "notsofarback";
+        var d = document.getElementById("notsofarback");
+        d.className += " clickedtime";
+    }
+}
+
+// Color //
+var color = "any";
+
+// Red
+function redfunction() {
+    if ( color === "red") {
+        color = "any";
+        var d = document.getElementById("buttonred");
+        d.className = "colorbutton";
+    }
+    else {
+        color = "red";
+        var d = document.getElementById("buttonred");
+        d.className += " clickedcolor";
+    }
+}
+
+// Green
+function greenfunction() {
+    if ( color === "green") {
+        color = "any";
+        var d = document.getElementById("buttongreen");
+        d.className = "colorbutton";
+    }
+    else {
+        color = "green";
+        var d = document.getElementById("buttongreen");
+        d.className += " clickedcolor";
+    }
+}
+
+// Yellow
+function yellowfunction() {
+    if ( color === "yellow") {
+        color = "any";
+        var d = document.getElementById("buttonyellow");
+        d.className = "colorbutton";
+    }
+    else {
+        color = "yellow";
+        var d = document.getElementById("buttonyellow");
+        d.className += " clickedcolor";
+    }
+}
+// Black
+function blackfunction() {
+    if ( color === "black") {
+        color = "any";
+        var d = document.getElementById("buttonblack");
+        d.className = "colorbutton";
+    }
+    else {
+        color = "black";
+        var d = document.getElementById("buttonblack");
+        d.className += " clickedcolor";
+    }
+}
+
+// White
+function whitefunction() {
+    if ( color === "white") {
+        color = "any";
+        var d = document.getElementById("buttonwhite");
+        d.className = "colorbutton";
+    }
+    else {
+        color = "white";
+        var d = document.getElementById("buttonwhite");
+        d.className += " clickedcolor";
+    }
+}
+
+// Grey
+function greyfunction() {
+    if ( color === "grey") {
+        color = "any";
+        var d = document.getElementById("buttongrey");
+        d.className = "colorbutton";
+    }
+    else {
+        color = "grey";
+        var d = document.getElementById("buttongrey");
+        d.className += " clickedcolor";
+    }
+}
+
+// Submit Form + Change Color, Time, Gallery Preference
+function submitForm() {
+    document.getElementById('hiddenTime').value = time;
+    document.getElementById('hiddenColor').value = color;
+    document.getElementById("myForm").submit();
+}
+
+
+</script>
+
+</body>
+{% endblock %}
+

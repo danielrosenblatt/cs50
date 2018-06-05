@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="script.js"></script>
+<link rel="stylesheet" type="text/css" href="./static/style.css">
+
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <title>{% block title %}{% endblock %}</title>
+
+        <ul class="navul">
+            <li class="navli"><a class="navlia" href="/index">Home</a></li>
+            <li class="navli"><a class="navlia" href="/about">About</a></li>
+            {% if session.user_id %}
+            <li class="navli"><a class="navlia" href="/logout">Log Out</a></li>
+            <li class="navli"><a class="navlia" href="/savedtours">Saved Tours</a></li>
+            {% else %}
+            <li class="navli"><a class="navlia" href="/register">Register</a></li>
+            <li class="navli"><a class="navlia" href="/login">Log In</a></li>
+            {% endif %}
+        </ul>
+        <br></br>
+
+    </head>
+    <body>
+
+    <main class="container p-5" style="padding-bottom: 120px;">
+            {% block main %}{% endblock %}
+    </main>
+
+    <div class="footer">
+    <p>All artwork and object information on this site have been gathered from the Harvard Art Museums API.</p>
+    </div>
+    </body>
+</html>

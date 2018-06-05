@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+<head>
+{% block title %}
+Saved Tours
+{% endblock %}
+
+{% block main %}
+
+</head>
+
+<body>
+    <h1>Your Saved Tours</h1>
+    <table style="margin: 0px auto">
+        <tr>
+            <th>Name of Tour</th>
+            <td> <p2>double-click on a tour name, then type new name and press enter, to rename a tour!</p2></td>
+
+        </tr>
+    {% for tour in tours %}
+        <tr>
+            <td class="tourname" id="tour{{tour.tour_id}}">{{tour.tour_name}}</td>
+
+            <td><form method="post" name="savedtour" action="/remembertour">
+            <button type="submit" class="button" id="b">View Tour</button>
+            <input type="hidden" name="tourid" value="{{tour.tour_id}}"> </form></td>
+
+            <td> <form method="post" name="delete" action="/deletetour">
+            <button type="submit" class="button" id="b" onclick="return confirm('Are you sure you want to delete this tour?')">Delete Tour</button>
+            <input type="hidden" name="tourid" value="{{tour.tour_id}}"> </form></td>
+        </tr>
+
+    {% endfor %}
+    </table>
+    </form>
+
+<script>
+let activeBox = undefined;
+
+function updateName(event) {
+    let newText = event.target.value
+    let idNum = event.target.name;
+    $.post('/renametour', {'tourid': idNum, 'rename': newText}, function(data) {
+        $("#tour" + idNum).html(newText);
+        activeBox = undefined;
+
+    })
+}
+// Had guidance from TF (Nenya) on this JS
+$(document).on('click', '.tourname', function(event) {
+    if (event.target.tagName == "INPUT") {
+        return;
+    }
+
+    let idNum = event.target.id.substr(4);
+
+    if (activeBox != undefined && activeBox.id != 'tour' + idNum) {
+        $(document).off('change', '#inputBoxId', updateName);
+        $('#' + activeBox.id).html(activeBox.origText);
+    }
+
+    activeBox = {
+        origText: event.target.innerHTML,
+        id: 'tour' + idNum
+    }
+
+    let target = $(event.target);
+    let input_id = 'inputbox' + idNum;
+
+
+    target.html("<input type='text' name='" + idNum +"' id='inputBoxId'></input>");
+
+    $(document).on('change', '#inputBoxId', updateName);
+
+})
+
+</script>
+</body>
+{% endblock %}
+
+</html>

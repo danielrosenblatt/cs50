@@ -1,0 +1,188 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<head>
+<title>Your Tour</title>
+
+<!-- Slideshow Stuff From https://www.w3schools.com/howto/howto_js_slideshow.asp -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="/static/scripts.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+
+<h2>Your Tour</h2>
+<p>Click through to see the stops along your tour!</p>
+{% if rememberedtour %}
+<p>You are viewing your tour "{{tourname}}"</p>
+{% endif %}
+{% if see_more %}
+<p>The input that created this tour was: {{user_input}}</p>
+{% endif %}
+
+<div class="row">
+  <div class="col-sm-8">
+    <div class="slideshow-container" style="max-width:350px">
+
+      <div class="mySlides fade" style="opacity: 1">
+        <div class="numbertext">1 / 4</div>
+        <img src="{{fourimages[0]}}" style="width:100%">
+        <div class="figcaption">{{fourtitles[0]}}</div>
+      </div>
+
+      <div class="mySlides fade" style="opacity: 1">
+        <div class="numbertext">2 / 4</div>
+        <img src="{{fourimages[1]}}" style="width:100%">
+        <div class="figcaption">{{fourtitles[1]}}</div>
+      </div>
+
+      <div class="mySlides fade" style="opacity: 1">
+        <div class="numbertext">3 / 4</div>
+        <img src="{{fourimages[2]}}" style="width:100%">
+        <div class="figcaption">{{fourtitles[2]}}</div>
+      </div>
+
+      <div class="mySlides fade" style="opacity: 1">
+        <div class="numbertext">4 / 4</div>
+        <img src="{{fourimages[3]}}" style="width:100%">
+        <div class="figcaption">{{fourtitles[3]}}</div>
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+   </div>
+
+  <div class="col-sm-4">
+    <div style="text-align:center">
+      <p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p>
+      <p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p>
+
+      <div class="text">
+        <h3 style="color: black">{{fourtitles[0]}}</h3>
+        <p>{{fourcultures[0]}}</p>
+        <p>{{fourdateds[0]}}</p>
+      </div>
+      <div class="text">
+        <h3 style="color: black">{{fourtitles[1]}}</h3>
+        <p>{{fourcultures[1]}}</p>
+        <p>{{fourdateds[1]}}</p>
+      </div>
+      <div class="text">
+        <h3 style="color: black">{{fourtitles[2]}}</h3>
+        <p>{{fourcultures[2]}}</p>
+        <p>{{fourdateds[2]}}</p>
+      </div>
+      <div class="text">
+        <h3 style="color: black">{{fourtitles[3]}}</h3>
+        <p>{{fourcultures[3]}}</p>
+        <p>{{fourdateds[3]}}</p>
+      </div>
+  </div>
+</div>
+
+<div align="center">
+<p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p>
+{% if see_more %}
+<form action="/realcurate" method="post" style="width: 600px; display: inline-block; margin: auto;">
+  <button type="submit" name="seemore" class="button" value="seeMore">See more like this!</button>
+  <input name="user_input" type="hidden" value="{{user_input}}">
+</form>
+{% endif %}
+<p>&nbsp;</p>
+{% if session_true == 1 %}
+<form action="/login" method="get">
+    <button type="submit" class="button">Login to save your tours!</button>
+</form>
+{% endif %}
+{% if save_tour and session_true == 0 %}
+<form action="/savetour" method="post" style="width: 600px; display: inline-block; margin: auto;">
+  <!--<input style="width: 50%; display: inline-block" autocomplete="off" autofocus class="form-control" name="tour_name" placeholder="Name your tour." type="text"/>-->
+  <!--Adapted from https://www.w3schools.com/js/js_popup.asp-->
+
+    <button type="submit" id="tourname" name="tourname" class="button" onclick="nameTour()" value="THISVALUECANNOTWORK">Save this Tour</button>
+    <input name="user_input" type="hidden" value="{{user_input}}">
+    <input name="object1_number" type="hidden" value="{{fourobjectnumbers[0]}}">
+    <input name="object2_number" type="hidden" value="{{fourobjectnumbers[1]}}">
+    <input name="object3_number" type="hidden" value="{{fourobjectnumbers[2]}}">
+    <input name="object4_number" type="hidden" value="{{fourobjectnumbers[3]}}">
+</form>
+{% endif %}
+
+<script>
+    function nameTour() {
+      var tourname = prompt("Name this Tour", "");
+      if (tourname != null) {
+        var usertourname = document.getElementById("tourname")
+        usertourname.value = tourname;
+      }
+    }
+</script>
+
+  <!--<button type="submit" class="button">Save this tour!</button>-->
+</div>
+
+<script>
+var slideIndex = 1;
+var infoIndex = 1;
+showSlides(slideIndex);
+showInfo(infoIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+  showInfo(infoIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+  showInfo(infoIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+
+function showInfo(n) {
+  var i;
+  var info = document.getElementsByClassName("text");
+  if (n > info.length) {infoIndex = 1}
+  if (n < 1) {infoIndex = info.length}
+  for (i = 0; i < info.length; i++) {
+      info[i].style.display = "none";
+  }
+  info[infoIndex-1].style.display = "block";
+}
+
+</script>
+
+</body>
+{% endblock %}
